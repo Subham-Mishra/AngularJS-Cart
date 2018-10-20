@@ -1,0 +1,53 @@
+body {
+	background-color: #9900ff;
+	color: #f7fa38;
+}
+@media only screen and (min-width: 1050px) {
+	.sidecart {
+		height: 100%;
+		position: fixed;
+		/* Fixed Sidebar (stay in place on scroll) */
+		/* Stay on top */
+		top: 10px;
+		right: 0;
+	}
+	img {
+		width: 200px;
+	}
+}
+.sidecart {
+	background-color: brown !important;
+	overflow-x: hidden;
+	/* Disable horizontal scroll */
+	padding: 20px;
+}
+.navbar-brand {
+	background-color: #e6e93e !important;
+	color: rgb(168, 21, 182) !important;
+	font-family: monospace;
+	font-weight: bolder;
+	padding-left: 5px;
+}
+.list-group-item {
+	background-color: rgb(63, 148, 101);
+	padding: 15px;
+}
+table,th,td {
+	border: 2px solid yellow;
+	border-collapse: collapse;
+	padding: 10px;
+	margin-right: 10px;
+	color: rgb(238, 238, 38);
+	font-weight: bolder;
+}
+table tr:nth-child(odd) {
+	background-color: #4e8f48;
+}
+table tr:nth-child(even) {
+	background-color: #456b74;
+}
+img {
+	border-radius: 10%;
+	height: 200px;
+	width: 350px;
+}

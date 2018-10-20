@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="store">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Fruits-Cart</title>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.css" rel="stylesheet" />
+	<link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header"> <a class="navbar-brand" href="#">Please Select The Fruits U want to Buy</a>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div ng-controller="StoreController">
+		<div class="col-md-7 display">
+			<hr>
+			<ul class="list-group text-center">
+				<li class="col-xs-12 col-md-6 col-sm-6 col-lg-6 list-group-item" ng-repeat="fruit in fruits">
+					<figure>
+						<img src="{{fruit.image}}" />
+						<figcaption>
+							<h3>
+                      {{fruit.name}}  
+                      {{fruit.price | currency:"₹"}}
+                    </h3>
+						</figcaption>
+					</figure>
+					<input class="btn btn-danger" type="button" ng-click="addItemToCart(fruit)" value="BUY" />
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-5 sidecart" ng-show="cart.length !== 0">
+			<h1>Your Cart Includes:--</h1>
+			<div style="overflow-x:auto;">
+				<table>
+					<tr>
+						<th>Sl. No.</th>
+						<th>Product</th>
+						<th>Price</th>
+						<th>Quantity</th>
+						<th></th>
+						<th>Total Amount</th>
+					</tr>
+					<tr ng-repeat="c in cart">
+						<td>{{ $index + 1 }}</td>
+						<td>{{ c.name }}</td>
+						<td>{{ c.price | currency:"₹"}}</td>
+						<td>{{ c.count }}</td>
+						<td>
+							<input class="btn btn-danger" type="button" ng-click="removeItemCart(c)" value="Remove" />
+						</td>
+						<td>{{c.price*c.count | currency:"₹"}}</td>
+					</tr>
+				</table>
+			</div>
+			<br>
+			<br>
+			<hr>
+			<h2>Total Cart Value is :- {{total | currency:"₹"}}</h2>
+		</div>
+		<hr>
+	</div>
+</body>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-cookies.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-sanitize.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-animate.min.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="app.js" type="text/javascript"></script>
+
+</html>
